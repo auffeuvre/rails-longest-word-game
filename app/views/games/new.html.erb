@@ -1,0 +1,12 @@
+<h1 class="m-auto">New Game</h1>
+<div class="d-flex  m-auto">
+  <% @letters.each do |letter| %>
+  <div class="m-2 p-2 bg-primary text-white w-30 h-30"><%= letter %></div>
+  <% end %>
+</div>
+<form action="/score" method="post" data-turbo="false" class="m-auto">
+  <input type="text" name="answer">
+  <%= hidden_field_tag :letters, @letters %>
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+  <button type="submit">Play</button>
+</form>
